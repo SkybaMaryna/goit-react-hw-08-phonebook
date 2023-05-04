@@ -8,7 +8,7 @@ export const PublicRoute = ({ children }) => {
   const fromPage = location.state?.from.pathname || '/';
 
   if (isOnline) {
-    <Navigate to={fromPage} />;
+    return <Navigate to={fromPage} />;
   }
   return children;
 };
