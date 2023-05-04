@@ -4,14 +4,8 @@ import { Filter } from 'components/Filter/Filter';
 
 export const ContactsPage = () => {
   return (
-    <div
-      style={{
-        padding: 20,
-      }}
-    >
-      <h1>Phonebook</h1>
+    <div className="flex justify-center flex-col items-center gap-6 p-10 bg-gradient-to-r from-cyan-200 to-blue-200">
       <ContactForm />
-      <h2>Contacts</h2>
       <Filter />
       <ContactList />
     </div>

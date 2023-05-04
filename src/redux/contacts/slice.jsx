@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { addContact, deleteContact, fetchContacts } from './operations';
+import { logoutUser } from 'redux/auth/operations';
 
 const initialState = {
   contacts: {
@@ -20,20 +21,21 @@ const contactsSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-      .addCase(fetchContacts.fulfilled, (state, action) => {
-        state.contacts.items = action.payload;
+      .addCase(fetchContacts.fulfilled, (state, { payload }) => {
+        state.contacts.items = payload;
       })
-      .addCase(addContact.fulfilled, (state, action) => {
-        state.contacts.items.push(action.payload);
+      .addCase(addContact.fulfilled, (state, { payload }) => {
+        state.contacts.items.push(payload);
       })
-
-      .addCase(deleteContact.fulfilled, (state, action) => {
+      .addCase(deleteContact.fulfilled, (state, { payload }) => {
         const item = state.contacts.items.findIndex(
-          item => item.id === action.payload.id
+          item => item.id === payload.id
         );
         state.contacts.items.splice(item, 1);
       })
-
+      .addCase(logoutUser.fulfilled, state => {
+        state.items = [];
+      })
       .addMatcher(
         action => action.type.endsWith('/fulfilled'),
         state => {
@@ -49,9 +51,9 @@ const contactsSlice = createSlice({
       )
       .addMatcher(
         action => action.type.endsWith('/rejected'),
-        (state, action) => {
+        (state, { payload }) => {
           state.contacts.isLoading = false;
-          state.contacts.error = action.payload;
+          state.contacts.error = payload;
         }
       );
   },
