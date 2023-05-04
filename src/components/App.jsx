@@ -11,7 +11,6 @@ import { useEffect } from 'react';
 import { refreshUser } from 'redux/auth/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUserLoading } from 'redux/auth/selectors';
-import { LineWave } from 'react-loader-spinner';
 
 export const App = () => {
   const dispatch = useDispatch();
