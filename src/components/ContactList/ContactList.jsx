@@ -22,7 +22,7 @@ export const ContactList = () => {
   return (
     <>
       <h2 className="text-center text-2xl font-bold">Contacts</h2>
-      <ul>
+      <ul className=" flex gap-3 flex-col">
         {applyFilters().map(({ name, number, id }) => (
           <li className="flex gap-6" key={id}>
             <Contact name={name} number={number} />
