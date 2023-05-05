@@ -13,9 +13,11 @@ export const Navigation = () => {
         <NavLink className="text-xl font-bold" to="/">
           Home
         </NavLink>
-        <NavLink className="text-xl font-bold" to="/contacts">
-          Contacts
-        </NavLink>
+        {isOnline && (
+          <NavLink className="text-xl font-bold" to="/contacts">
+            Contacts
+          </NavLink>
+        )}
       </div>
       {isOnline ? (
         <>
