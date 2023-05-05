@@ -3,7 +3,7 @@ import { Layout } from './Layout/Layout';
 import { HomePage } from 'pages/HomePage/HomePage';
 import { RegisterPage } from 'pages/RegisterPage/RegisterPage';
 import { LoginPage } from 'pages/LoginPage/LoginPage';
-import { ContactsPage } from 'pages/Contacts/ContactsPage';
+import { ContactsPage } from 'pages/ContactsPage/ContactsPage';
 import { NotFound } from './NotFound/NotFound';
 import { PrivateRoute } from 'hoc/PrivateRoute';
 import { PublicRoute } from 'hoc/PublicRoute';

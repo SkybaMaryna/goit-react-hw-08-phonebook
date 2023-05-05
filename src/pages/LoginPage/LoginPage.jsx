@@ -1,13 +1,11 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { loginUser } from 'redux/auth/operations';
 
 export const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -25,7 +23,6 @@ export const LoginPage = () => {
     e.preventDefault();
     const user = { email, password };
     dispatch(loginUser(user)).unwrap();
-    navigate('/contacts');
     setEmail('');
     setPassword('');
   };
